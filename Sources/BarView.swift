@@ -38,18 +38,6 @@ open class BarView: UIView {
                 selectedIndex = optionsCount - 1
             }
         }
-        didSet{
-            for index in 1...optionsCount{
-                let view = UIView(frame: CGRect(x: (self.frame.size.width/CGFloat(optionsCount))*CGFloat(index-1),
-                                                y: 0,
-                                                width: (self.frame.size.width/CGFloat(optionsCount))*0.9,
-                                                height: self.frame.size.height))
-                view.backgroundColor = #colorLiteral(red: 0.2233612835, green: 0.5215935707, blue: 0, alpha: 1)
-                view.layer.cornerRadius = 3
-                addSubview(view)
-            }
-            addSubview(selectedBar)
-        }
     }
     var selectedIndex = 0
 
@@ -99,6 +87,20 @@ open class BarView: UIView {
 
     open override func layoutSubviews() {
         super.layoutSubviews()
+        addBarView()
+        addSubview(selectedBar)
         updateSelectedBarPosition(with: false)
+    }
+    
+    func addBarView(){
+        for index in 0...optionsCount{
+            let view = UIView(frame: CGRect(x: (self.frame.size.width/CGFloat(optionsCount))*CGFloat(index),
+                                            y: 0,
+                                            width: (self.frame.size.width/CGFloat(optionsCount))*0.9,
+                                            height: self.frame.size.height))
+            view.backgroundColor = #colorLiteral(red: 0.2233612835, green: 0.5215935707, blue: 0, alpha: 1)
+            view.layer.cornerRadius = 3
+            addSubview(view)
+        }
     }
 }
