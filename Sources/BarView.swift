@@ -98,7 +98,7 @@ open class BarView: UIView {
                                             y: 0,
                                             width: (self.frame.size.width/CGFloat(optionsCount))*0.9,
                                             height: self.frame.size.height))
-            view.backgroundColor = #colorLiteral(red: 0.2233612835, green: 0.5215935707, blue: 0, alpha: 1)
+            view.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.3)
             view.layer.cornerRadius = 3
             addSubview(view)
         }
